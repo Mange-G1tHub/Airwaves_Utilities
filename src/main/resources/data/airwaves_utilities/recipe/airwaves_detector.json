@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "PDC",
+    "FTF",
+    "BMB"
+  ],
+  "key": {
+    "P": { "item": "airwaves:polished_amethyst" },
+    "D": { "item": "airwaves:display_board" },
+    "C": { "item": "airwaves:copper_wire" },
+    "F": { "item": "airwaves:frequency_card" },
+    "T": { "item": "airwaves:tuner_board" },
+    "B": { "item": "create:brass_sheet" },
+    "M": { "item": "airwaves:memory_chip" }
+  },
+  "result": {
+    "id": "airwaves_utilities:airwaves_detector",
+    "count": 1
+  }
+}

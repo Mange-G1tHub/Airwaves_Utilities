@@ -1,0 +1,35 @@
+plugins {
+    id 'net.neoforged.moddev' version '2.0.107'
+}
+
+version = project.mod_version
+group = project.mod_group_id
+base { archivesName = 'airwaves_utilities' }
+
+repositories { mavenCentral() }
+dependencies {
+    implementation files('libs/airwaves-0.1.0.jar')
+
+    compileOnly 'org.spongepowered:mixin:0.8.7'
+
+    // Decode MP3 frames directly so source rate/channel layouts do not depend on Java Sound conversion.
+    jarJar(implementation('com.googlecode.soundlibs:jlayer:1.0.1.4')) {
+        version { strictly '[1.0.1.4]'; prefer '1.0.1.4' }
+    }
+}
+
+neoForge {
+    version = project.neo_version
+    runs {
+        client { client(); systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id }
+        server { server(); programArgument '--nogui'; systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id }
+    }
+    mods { airwaves_utilities { sourceSet sourceSets.main } }
+}
+
+tasks.withType(ProcessResources).configureEach {
+    var replaceProperties = [minecraft_version: minecraft_version, neo_version: neo_version,
+        mod_id: mod_id, mod_name: mod_name, mod_version: mod_version]
+    inputs.properties replaceProperties
+    filesMatching(['META-INF/neoforge.mods.toml']) { expand replaceProperties }
+}

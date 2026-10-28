@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "SCS",
+    "OPM",
+    "STS"
+  ],
+  "key": {
+    "S": { "item": "airwaves:silver_sheet" },
+    "C": { "item": "airwaves:crystal_oscillator" },
+    "O": { "item": "airwaves:counter_chip" },
+    "P": { "item": "airwaves:tape_player" },
+    "M": { "item": "airwaves:memory_chip" },
+    "T": { "item": "airwaves:transistor" }
+  },
+  "result": {
+    "id": "airwaves_utilities:tape_importer",
+    "count": 1
+  }
+}
